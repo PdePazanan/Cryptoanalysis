@@ -1,14 +1,14 @@
 import random
-
 from cipher import decrypt, random_key
 from scorer import score_text
+
 
 def change_key(key):
 
     key = list(key)
 
-    # On échange simplement deux lettres de la clé.
-    # C'est notre petite modification à chaque étape.
+    # On échange deux lettres au hasard.
+    # Ça permet de tester une nouvelle clé proche de la précédente.
     a = random.randint(0, 25)
     b = random.randint(0, 25)
 
@@ -17,26 +17,42 @@ def change_key(key):
     return "".join(key)
 
 
-def crack(ciphertext, quadgrams, iterations=20000):
+def crack(ciphertext, trigrams, quadgrams, iterations=10000, restarts=20):
 
-    key = random_key()
+    best_key = None
+    best_score = -float("inf")
 
-    plaintext = decrypt(ciphertext, key)
-    best_score = score_text(plaintext, quadgrams)
+    # On recommence plusieurs fois avec une clé différente.
+    # Ça évite de rester bloqué trop facilement sur une mauvaise solution.
+    for restart in range(restarts):
 
-    best_key = key
+        key = random_key()
 
-    for i in range(iterations):
+        text = decrypt(ciphertext, key)
+        score = score_text(text, trigrams, quadgrams)
 
-        new_key = change_key(key)
+        for i in range(iterations):
 
-        new_text = decrypt(ciphertext, new_key)
-        new_score = score_text(new_text, quadgrams)
+            new_key = change_key(key)
 
-        if new_score > best_score:
+            new_text = decrypt(ciphertext, new_key)
+            new_score = score_text(new_text, trigrams, quadgrams)
 
-            key = new_key
-            best_score = new_score
-            best_key = new_key
+            # On garde la nouvelle clé seulement si elle donne
+            # un texte qui ressemble davantage à de l'anglais.
+            if new_score > score:
+
+                key = new_key
+                score = new_score
+
+        if score > best_score:
+
+            best_score = score
+            best_key = key
+
+            print(
+                "New best score:",
+                round(best_score, 2)
+            )
 
     return best_key, best_score

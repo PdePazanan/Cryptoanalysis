@@ -1,47 +1,83 @@
 import math
 
 
-def load_quadgrams(filename):
-    quadgrams = {}
+def load_ngrams(filename):
 
-    with open(filename, "r") as file:
+    ngrams = {}
+
+    with open(filename, "r", encoding="utf-8") as file:
+
         for line in file:
+
             parts = line.split()
 
             if len(parts) != 2:
                 continue
 
-            quadgrams[parts[0]] = int(parts[1])
+            ngram = parts[0]
+            count = int(parts[1])
 
-    total = sum(quadgrams.values())
+            ngrams[ngram] = count
 
-    # On travaille avec les log-probabilités pour éviter
-    # de multiplier plein de nombres très petits.
-    for q in quadgrams:
-        quadgrams[q] = math.log10(quadgrams[q] / total)
+    total = sum(ngrams.values())
 
-    return quadgrams
+    for ngram in ngrams:
+
+        probability = ngrams[ngram] / total
+        ngrams[ngram] = math.log10(probability)
+
+    return ngrams
 
 
-def score_text(text, quadgrams):
+def clean_text(text):
 
-    text = ""
+    result = ""
 
-    for c in text.upper():
-        if c.isalpha():
-            text += c
+    for char in text.upper():
+
+        if char >= "A" and char <= "Z":
+            result += char
+
+    return result
+
+
+def score_ngrams(text, ngrams, size):
+
+    text = clean_text(text)
 
     score = 0
 
-    for i in range(len(text) - 3):
+    for i in range(len(text) - size + 1):
 
-        quadgram = text[i:i + 4]
+        ngram = text[i:i + size]
 
-        if quadgram in quadgrams:
-            score += quadgrams[quadgram]
+        if ngram in ngrams:
+            score += ngrams[ngram]
+
         else:
-            # Un groupe de lettres jamais vu dans le corpus
-            # est probablement très peu probable.
             score -= 10
 
     return score
+
+
+def score_text(text, trigrams, quadgrams):
+
+    trigram_score = score_ngrams(
+        text,
+        trigrams,
+        3
+    )
+
+    quadgram_score = score_ngrams(
+        text,
+        quadgrams,
+        4
+    )
+
+    # Les quadgrams sont plus précis,
+    # donc on leur donne plus de poids.
+
+    return (
+        0.3 * trigram_score
+        + 0.7 * quadgram_score
+    )
