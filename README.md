@@ -23,7 +23,10 @@ Cryptoanalysis/
 
 Nous avons tout d'abord utilisé la méthode hill climbing
 
-    
+
+<img width="1365" height="807" alt="image" src="https://github.com/user-attachments/assets/61ea70c3-1b43-4997-81c3-8cd1e7bf4401" />
+
+
 ### Sources
 
 Test de Kasiski
