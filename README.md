@@ -1,8 +1,10 @@
 # Cryptoanalysis
 
-Implémentation d'un algorithme de cryptanalyse sans connaissance préalable de la clé, basé sur l'analyse de fréquences de quadgrammes et une recherche locale de type hill climbing / simulated annealing. Détection automatique de la langue et évaluation de la qualité des clés candidates.
+## Introduction
 
-Ce projet permet d'encrypter ou de décrypter un message
+Implémentation d'un algorithme de cryptanalyse sans connaissance préalable de la clé, basé sur l'analyse de fréquences de quadgrammes et une recherche locale de type hill climbing / simulated annealing. 
+Détection automatique de la langue et évaluation de la qualité des clés candidates.
+Ce projet permet donc d'encrypter ou de décrypter un message sans en connaitre la clé
 
 
 ```text
