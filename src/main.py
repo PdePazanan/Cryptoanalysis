@@ -62,15 +62,12 @@ def decrypt_message():
     print("Loading language statistics...")
 
     trigrams = load_ngrams(
-        "data/trigrams.txt"
+        "data/english_trigrams.txt"
     )
 
     quadgrams = load_ngrams(
-        "data/quadgrams.txt"
+        "data/english_quadgrams.txt"
     )
-    # quadgrams = load_quadgrams(
-    #     "data/quadgrams.txt"
-    # )
     
     print("Number of trigrams:", len(trigrams))
     print("Number of quadgrams:", len(quadgrams))
@@ -78,7 +75,7 @@ def decrypt_message():
     print(
         "Test score:",
         score_text(
-            "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG",
+            "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG and eat his food",
             trigrams,
             quadgrams
         )
@@ -87,7 +84,7 @@ def decrypt_message():
     print("Starting cryptanalysis...")
     print()
 
-    key, score = crack(ciphertext,trigrams,quadgrams,iterations=10000,restarts=20)
+    key, score = crack(ciphertext,trigrams,quadgrams,iterations=20000,restarts=20)
 
     plaintext = decrypt(ciphertext, key)
 
@@ -148,3 +145,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
+    

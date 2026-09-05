@@ -73,10 +73,9 @@ def score_text(text, trigrams, quadgrams):
         quadgrams,
         4
     )
-
     # Les quadgrams sont plus précis,
     # donc on leur donne plus de poids.
-
+    
     return (
         0.3 * trigram_score
         + 0.7 * quadgram_score
