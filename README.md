@@ -6,9 +6,8 @@ Ce projet permet d'encrypter ou de décrypter un message
 
 
 ```text
-substitution-cipher-cracker/
+Cryptoanalysis/
 ├── README.md
-├── requirements.txt
 ├── src/
 │   ├── cipher.py
 │   ├── scorer.py
