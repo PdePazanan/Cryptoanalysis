@@ -5,24 +5,20 @@ Implémentation d'un algorithme de cryptanalyse sans connaissance préalable de 
 Ce projet permet d'encrypter ou de décrypter un message
 
 
-
+```text
 substitution-cipher-cracker/
-│
 ├── README.md
 ├── requirements.txt
-│
 ├── src/
 │   ├── cipher.py
 │   ├── scorer.py
 │   ├── cracker.py
 │   └── main.py
-│
 ├── data/
 │   └── quadgrams.txt
-│
 └── examples/
     └── encrypted.txt
-
+```
 
 ## Premiers test
 
