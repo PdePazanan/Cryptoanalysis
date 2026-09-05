@@ -29,6 +29,10 @@ Nous avons tout d'abord utilisé la méthode hill climbing
 <img width="1365" height="807" alt="image" src="https://github.com/user-attachments/assets/61ea70c3-1b43-4997-81c3-8cd1e7bf4401" />
 
 
+
+Un problème que j'ai tout d'abord repéré à été la construction de clean_text 
+Ça transforme "THE DOG" en "THEDOG
+
 ### Sources
 
 Test de Kasiski
