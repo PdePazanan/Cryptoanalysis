@@ -12,24 +12,28 @@ def print_title():
     print("=" * 50)
     print("       SUBSTITUTION CIPHER CRACKER")
     print("=" * 50)
-    print()
+    print("||                                              ||")
 
 
 def encrypt_message():
 
-    message = input("Message to encrypt: ")
+    message = input("|| Message to encrypt: ")
+    print("||                                              ||")
 
     key = random_key()
 
     encrypted = encrypt(message, key)
 
-    print()
-    print("Encrypted message:")
-    print(encrypted)
+    print("||                                              ||")
+    print("|| Encrypted message:                           ||")
+    print("||", encrypted)
 
-    print()
-    print("Key:")
-    print(key)
+    print("||                                              ||")
+    print("|| Key:                                         ||")
+    print("||", key,"                  ||" )
+    print("|| ABCDEFGHIJKLMNOPQRSTUVWXYZ                   ||")
+    print("||                                              ||")
+    print("=" * 50)
 
 
 def decrypt_message():
@@ -84,7 +88,7 @@ def decrypt_message():
     print("Starting cryptanalysis...")
     print()
 
-    key, score = crack(ciphertext,trigrams,quadgrams,iterations=20000,restarts=20)
+    key, score = crack(ciphertext,trigrams,quadgrams,iterations=20000,restarts=30)
 
     plaintext = decrypt(ciphertext, key)
 
@@ -116,15 +120,14 @@ def main():
     while True:
 
         print_title()
+        print("||    1 - Encrypt a message                     ||")
+        print("||    2 - Decrypt a message                     ||")
+        print("||    3 - Quit                                  ||")
 
-        print("1 - Encrypt a message")
-        print("2 - Decrypt a message")
-        print("3 - Quit")
+        print("||                                              ||")
 
-        print()
-
-        choice = input("Choice: ")
-
+        choice = input("|| Choice:"   )  
+        print("||                                              ||")
         if choice == "1":
 
             encrypt_message()
@@ -145,5 +148,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
-    
