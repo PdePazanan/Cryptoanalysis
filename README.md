@@ -16,9 +16,7 @@ Cryptoanalysis/
 │   ├── cracker.py
 │   └── main.py
 ├── data/
-│   └── quadgrams.txt
-└── examples/
-    └── encrypted.txt
+    └── quadgrams.txt
 ```
 
 ## Premiers test

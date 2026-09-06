@@ -1,7 +1,6 @@
 import sys
 
 from cipher import encrypt, decrypt, random_key
-# from scorer import load_quadgrams, score_text
 from scorer import load_ngrams, score_text
 from cracker import crack
 
@@ -63,8 +62,8 @@ def decrypt_message():
         print("Try using a longer text.")
         return
 
-    print()
-    print("Loading language statistics...")
+    print("||                                              ||")
+    print("|| Loading language statistics...               ||")
 
     trigrams = load_ngrams(
         "data/english_trigrams.txt"
@@ -74,22 +73,15 @@ def decrypt_message():
         "data/english_quadgrams.txt"
     )
     
-    print("Number of trigrams:", len(trigrams))
-    print("Number of quadgrams:", len(quadgrams))
+    print("|| Number of trigrams:", len(trigrams), "                   ||")
+    print("|| Number of quadgrams:", len(quadgrams), "                 ||")
 
-    print(
-        "Test score:",
-        score_text(
-            "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG and eat his food",
-            trigrams,
-            quadgrams
-        )
-    )
+    print( "|| Test score:",score_text("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG and eat his food",trigrams,quadgrams),"             ||")
 
-    print("Starting cryptanalysis...")
-    print()
+    print("|| Starting cryptanalysis...                    ||")
+    print("||                                              ||")
 
-    key, score = crack(ciphertext,trigrams,quadgrams,iterations=20000,restarts=15)
+    key, score = crack(ciphertext,trigrams,quadgrams,iterations=20000,restarts=17)
 
     plaintext = decrypt(ciphertext, key)
 
