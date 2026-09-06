@@ -33,6 +33,21 @@ Nous avons tout d'abord utilisé la méthode hill climbing
 Un problème que j'ai tout d'abord repéré à été la construction de clean_text 
 Ça transforme "THE DOG" en "THEDOG
 
+
+<img width="1910" height="874" alt="image" src="https://github.com/user-attachments/assets/26c43501-490a-44e3-ad8b-9c9ad3de0417" />
+
+
+
+## Modifications pour amelioration du dechiffrement
+
+Attaque par motif de mots (word pattern attack)
+
+
+
+
+
+
+
 ### Sources
 
 Test de Kasiski
