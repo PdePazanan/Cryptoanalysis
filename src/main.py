@@ -89,7 +89,7 @@ def decrypt_message():
     print("Starting cryptanalysis...")
     print()
 
-    key, score = crack(ciphertext,trigrams,quadgrams,iterations=20000,restarts=20)
+    key, score = crack(ciphertext,trigrams,quadgrams,iterations=20000,restarts=15)
 
     plaintext = decrypt(ciphertext, key)
 
