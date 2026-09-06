@@ -16,7 +16,7 @@ def print_title():
 
 
 def encrypt_message():
-
+    
     message = input("|| Message to encrypt: ")
     print("||                                              ||")
 
@@ -38,8 +38,9 @@ def encrypt_message():
 
 def decrypt_message():
 
-    print("Paste the encrypted message.")
-    print("Press ENTER on an empty line when finished.")
+    print("|| Paste the encrypted message.                 ||")
+    print("|| Press ENTER on an empty line when finished.  ||")
+    print("||                                              ||")
     print()
 
     lines = []
@@ -88,7 +89,7 @@ def decrypt_message():
     print("Starting cryptanalysis...")
     print()
 
-    key, score = crack(ciphertext,trigrams,quadgrams,iterations=20000,restarts=30)
+    key, score = crack(ciphertext,trigrams,quadgrams,iterations=20000,restarts=20)
 
     plaintext = decrypt(ciphertext, key)
 
