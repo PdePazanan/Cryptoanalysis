@@ -40,19 +40,19 @@ def clean_text(text):
 
     return result
 
-# def clean_words(text):
-#     words = []
-#     current = ""
-#     for char in text.upper():
-#         if "A" <= char <= "Z":
-#             current += char
-#         else:
-#             if current:
-#                 words.append(current)
-#                 current = ""
-#     if current:
-#         words.append(current)
-#     return words
+def clean_words(text):
+    words = []
+    current = ""
+    for char in text.upper():
+        if "A" <= char <= "Z":
+            current += char
+        else:
+            if current:
+                words.append(current)
+                current = ""
+    if current:
+        words.append(current)
+    return words
 
 
 # def score_ngrams(text, ngrams, size):
