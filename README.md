@@ -59,16 +59,6 @@ Quand le texte est assez court, notre algorithme a du mal à decoder le message,
 
 
 
-## Modifications pour amelioration du dechiffrement
-
-Ainsi, lorsque nous avons un long message il n'y a pas de soucis mais pour un message plus court, il est plus compliqué de déchiffrer, nous allons donc utiliser une attaque par motif de mots (word pattern attack)
-
-
-
-
-
-
-
 ### Sources
 
 Test de Kasiski
