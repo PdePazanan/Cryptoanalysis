@@ -59,6 +59,3 @@ Quand le texte est assez court, notre algorithme a du mal à decoder le message,
 
 
 
-### Sources
-
-Test de Kasiski
